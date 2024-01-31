@@ -1,0 +1,28 @@
+<nav class="navbar " style="background-color: rgb(8, 53, 6);height: 9vh;">
+<div class="container-fluid">
+    <h3 class="text-light">Shop Cart</h3>
+   <nav class="m-auto">
+        <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+   </nav>
+   <nav class="d-flex gap-3" >
+    <a routerLink="/cart" class="btn btn-outline-light position-relative"> <i class="fa-solid fa-cart-shopping"></i> Cart 
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        99
+        <span class="visually-hidden">unread messages</span>
+        </span>
+    </a>
+    <a routerLink="/wishlist" class="btn btn-outline-light position-relative"><i class="fa-regular fa-heart"></i> Wishlist
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        {{wishlistCount}}
+        <span class="visually-hidden">unread messages</span>
+        </span>
+    </a>
+    <a *ngIf="!loginUserName" routerLink="/user/login" class="btn btn-outline-light"><i class="fa-solid fa-user"></i> Login</a>
+
+    <a *ngIf="loginUserName" routerLink="/user/login" class="btn btn-outline-light"><i class="fa-solid fa-power-off"></i> {{loginUserName}}</a>
+   </nav>
+</div>
+</nav>

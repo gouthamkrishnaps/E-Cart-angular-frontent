@@ -1,0 +1,29 @@
+<app-banner></app-banner>
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5" *ngFor="let product of allproduct">
+                <div class="card h-100 shadow ">
+                    <!-- Product image-->
+                    <img routerLink="view-product/{{product.id}}" class="card-img-top" [src]='product.image' alt="..." height="300px"/>
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{product.title.slice(0,20)}}</h5>
+                            <!-- Product price-->
+                            <span class="text-danger fw-bold fs-4">${{product.price}}</span>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-outline-danger" (click)="addToWishlist(product)"><i class="fa-solid fa-heart-circle-plus"></i></a>
+                            <a class="btn btn-outline-success" ><i class="fa-solid fa-cart-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
